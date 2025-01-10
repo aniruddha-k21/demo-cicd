@@ -8,9 +8,8 @@ phases:
       - apt-get install nginx -y
   build:
     commands:
-      - echo Build started on `date`
-      - mkdir -p build-output
-      - cp index.html build-output/index.html
+      - echo "Listing all files in the working directory:"
+      - ls -la
 artifacts:
   files:
     - build-output/index.html
