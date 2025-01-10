@@ -11,10 +11,6 @@ phases:
       - echo Build started on `date`
       - mkdir -p build-output
       - cp index.html build-output/index.html
-  post_build:
-    commands:
-      - echo Configuring NGINX
-      - cp build-output/index.html /var/www/html/
 artifacts:
   files:
     - build-output/index.html
