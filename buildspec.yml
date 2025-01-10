@@ -3,13 +3,18 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing NGINX
-      - apt-get update
+      - echo "Installing NGINX..."
+      - apt-get update -y
       - apt-get install nginx -y
   build:
     commands:
-      - echo "Listing all files in the working directory:"
+      - echo "Build started on `date`."
+      - echo "Listing files in the working directory..."
       - ls -la
+      - echo "Creating build-output directory..."
+      - mkdir -p build-output
+      - echo "Generating a sample index.html file..."
+      - echo "<html><body><h1>Test Page</h1></body></html>" > build-output/index.html
 artifacts:
   files:
     - build-output/index.html
