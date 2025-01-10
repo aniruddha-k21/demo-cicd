@@ -4,17 +4,17 @@ phases:
   install:
     commands:
       - echo Installing NGINX
-      - sudo apt-get update
-      - sudo apt-get install nginx -y
+      - apt-get update
+      - apt-get install nginx -y
   build:
     commands:
       - echo Build started on `date`
-      - cp index.html /var/www/html/
+      - mkdir -p build-output
+      - cp index.html build-output/index.html
   post_build:
     commands:
-      - echo configuring NGINX
-
+      - echo Configuring NGINX
+      - cp build-output/index.html /var/www/html/
 artifacts:
   files:
-    - /var/www/html/index.html
-  
+    - build-output/index.html
